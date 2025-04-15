@@ -129,6 +129,6 @@ values for tracks in each album.*/
 with a as (
 select album, track, max(energyliveness) as maxlive, min(energyliveness) as minlive from spotify
 group by track)
-select album, track, cast(maxlive- minlive as decimal(10,5)) from a;
+select album, track, cast(maxlive- minlive as decimal(10,5)) as diff from a;
 
 
